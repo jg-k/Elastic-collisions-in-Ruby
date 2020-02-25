@@ -4,8 +4,7 @@ This is a useless but soothing elastic collision simulator using ruby and the ru
 You can just watch the balls colliding, or to be more active, you can also "grab" and release a ball with your mouse and force collisions with other balls.
 
 ## Run:
-Clone the repository
-In the folder, run:
+Clone the repository, then in the folder, run:
 ```sh
 $ ruby main.rb
 ```
