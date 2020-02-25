@@ -1,9 +1,6 @@
 ## Elastic collision simulator
-This is a useless but soothing elastic collision simulator using ruby and the ruby2d library.
-You can just watch the balls colliding, or to be more active, you can also "grab" and release a ball with your mouse and force collisions with other balls.
-Initially script based on Mario Visic tutorial 
-+ [Mario Visic tutorial](https://www.youtube.com/watch?v=e3B8m4vBzB0&feature=emb_logo), [Github]
-https://github.com/mariovisic/ruby2d-games/tree/master/04%20-%20Collision-Detection
+   This is a useless but soothing elastic collision simulator using ruby and the ruby2d library.
+   You can just watch the balls colliding, or to be more active, you can also "grab" and release a ball with your mouse and force collisions with other balls.
 
 # Run:
 Clone the repository
@@ -15,6 +12,8 @@ In main.rb, you also specify input number of balls, positions and speed or let r
 
 # Collision model
 + [wikipedia - Elastic collision](https://en.wikipedia.org/wiki/Elastic_collision)
++ Initial script based on a nice [tutorial from Mario Visic](https://www.youtube.com/watch?v=e3B8m4vBzB0&feature=emb_logo), [Github]
+https://github.com/mariovisic/ruby2d-games/tree/master/04%20-%20Collision-Detection
 
 ## screenshot
 ![screenshot](/Screenshot.png?raw=true "screenshot")
