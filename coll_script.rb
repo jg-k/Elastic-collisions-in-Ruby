@@ -1,6 +1,6 @@
 require './collisions'
 
-$boxes = Array.new(8){Box.new({})}
+$boxes = Array.new(15){Box.new({})}
 bob = Player.new
 
 

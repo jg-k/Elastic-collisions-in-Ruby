@@ -2,9 +2,11 @@ require 'ruby2d'
 require './collisions_calc'
 require 'matrix'
 
+set title: "Ball chaos"
 set background: 'white'
 set width:1200
 set height:800
+
 
 class Box
   attr_accessor :x, :y, :x_velocity, :y_velocity, :mass, :colliding, :radius, :size, :circle, :in_reach, :grabbed

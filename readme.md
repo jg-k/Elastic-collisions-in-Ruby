@@ -1,3 +1,18 @@
-# a simple elastic collision simulator with ruby 2d
-# install ruby and ruby 2d
-# Then in the terminal: ruby coll_script.rb
+## Elastic collision simulator
+This is a simple elastic collision simulator using ruby and the ruby2d library
+
+To get a feel for it, you can "grab" and release a ball with your mouse and force collisions with other balls.
+
+# Run:
+Clone the repository
+Then run: ruby coll_script.rb
+
+# collision model
+[wikipedia](https://en.wikipedia.org/wiki/Elastic_collision)
+
+## screenshot
+![screenshot](/screenshot.png?raw=true "screenshot")
+
+# bugs and improvements
++ Sometimes, the collision detection and calculator are not accurate enough, such that to 2 (or more) balls can get locked into a romantic dance. Another collision can sometimes break the dance!
++ The ball grab logic could be improved. sometimes balls get hidden behind the grabbed ball and never come out (also due to imprecise collision detection)
