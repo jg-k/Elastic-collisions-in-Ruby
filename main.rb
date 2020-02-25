@@ -9,12 +9,6 @@ bob = Player.new
 on :mouse_down do |event|
   # x and y coordinates of the mouse button event
   puts event.x, event.y
-  # ball = check_for_ball(event.x, event.y)
-  # if ball
-  #   break ball
-  # end
-
-
 
   # Read the button event
   case event.button
@@ -83,8 +77,6 @@ update do
       box.y = bob.y
       box.x_velocity = bob.delta_x
       box.y_velocity = bob.delta_y
-
-
 
     else
       box.move

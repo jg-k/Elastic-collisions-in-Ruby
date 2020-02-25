@@ -5,10 +5,13 @@ To get a feel for it, you can "grab" and release a ball with your mouse and forc
 
 # Run:
 Clone the repository
-Then run: ruby coll_script.rb
+Then in the folder, run:
+```sh
+$ ruby main.rb
+```
 
-# collision model
-[wikipedia](https://en.wikipedia.org/wiki/Elastic_collision)
+# Collision model
++ [wikipedia](https://en.wikipedia.org/wiki/Elastic_collision)
 
 ## screenshot
 ![screenshot](/screenshot.png?raw=true "screenshot")

@@ -155,6 +155,18 @@ class Box
 
 
 end
+def collisions_2d(x1,v1,m1,x2,v2,m2)
+
+m2 = m2.to_f
+m1 = m1.to_f
+
+
+@V1f = v1 - 2 * m2 / (m1+m2) * (((v1-v2).inner_product (x1-x2))/(x1-x2).magnitude**2)*(x1-x2)
+@V2f = v2 - 2 * m1 / (m1+m2) * (((v2-v1).inner_product (x2-x1))/(x2-x1).magnitude**2)*(x2-x1)
+return @V1f,@V2f
+# puts @V1f
+# puts @V2f
+end
 class Player
   attr_accessor :x,:y,:delta_x, :delta_y, :left_pressed
   def initialize
