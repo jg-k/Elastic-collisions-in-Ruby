@@ -1,6 +1,17 @@
 require './collisions'
 
+# user defined box array. for sanity checks!
+user_defined_boxes = false
+if user_defined_boxes
+
+  $boxes = Array.new(2)
+  $boxes[0] = Box.new(x: 10, y:500 , x_velocity: 5, y_velocity: 0, mass:10)
+  $boxes[1] = Box.new(x: 500, y: 500, x_velocity: 0, y_velocity: 0, mass:10)
+else
+# randomly generated
 $boxes = Array.new(15){Box.new({})}
+end
+
 bob = Player.new
 
 
@@ -64,7 +75,9 @@ end
 # first, check for collisions, than move boxes
 update do
   clear
+
   $boxes.each do |box|
+
     if !box.colliding
       box.check_for_collision
     end

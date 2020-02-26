@@ -1,5 +1,4 @@
 require 'ruby2d'
-require './collisions_calc'
 require 'matrix'
 
 set title: "Ball chaos"
@@ -13,17 +12,13 @@ class Box
   attr_reader :radius, :size
 
   def initialize(args)
-    # say something if args in hadh not recognized
+    # say something if one of the args is not recognized?
 
-    # ,x_velocity = (-5..5).to_a.sample,y_velocity = (-5..5).to_a.sample
-    # @x = rand(Window.width)
-    # puts args
     @x = args[:x] || rand(Window.width)
     @y = args[:y] || rand(Window.height)
-    @x_velocity = args[:x_velocity] || (-2..2).to_a.sample
-    @y_velocity = args[:y_velocity] || (-2..2).to_a.sample
+    @x_velocity = args[:x_velocity] || (-3..3).to_a.sample
+    @y_velocity = args[:y_velocity] || (-3..3).to_a.sample
     @mass = args[:m] || (4..10).to_a.sample
-    @mass_ref = @mass
     @color = Color.new('random')
     @colliding = false
     @shape = 'circle'
@@ -33,6 +28,7 @@ class Box
   end
 
   def radius
+    # 10 is an arbitrary constant relating radius to mass**0.5 (all ball habve the same density), to get a suitable ball radius for display
     10*@mass**0.5
 
   end
@@ -57,7 +53,7 @@ class Box
 
       end
 
-    end
+  end
 
   def move
     @x= (@x+@x_velocity) % Window.width
@@ -102,11 +98,11 @@ class Box
     case @shape
     when 'square'
 
-        ($boxes - Array(self)).any? do |other_box|
-          if other_box.include?(@square)
-            return other_box
-          end
+      ($boxes - Array(self)).any? do |other_box|
+        if other_box.include?(@square)
+          return other_box
         end
+      end
     when 'circle'
       ($boxes - Array(self)).any? do |other_box|
         distance_c_c = ((@x-other_box.x)**2 + (@y-other_box.y)**2 )**0.5
@@ -130,19 +126,17 @@ class Box
   def in_reach?(player)
 
     if @circle && @circle.contains?(player.x,player.y)
-      puts "in reach"
+      # puts "in reach"
       @in_reach = true
-
     else
       @in_reach = false
-
     end
 
   end
+
   def grabbed?(player)
     if player.left_pressed && @in_reach
       @grabbed = true
-
       puts "grabbed"
 
     else
@@ -155,33 +149,34 @@ class Box
 
 
 end
-def collisions_2d(x1,v1,m1,x2,v2,m2)
 
-m2 = m2.to_f
-m1 = m1.to_f
+  def collisions_2d(x1,v1,m1,x2,v2,m2)
+
+    m2 = m2.to_f
+    m1 = m1.to_f
 
 
-@V1f = v1 - 2 * m2 / (m1+m2) * (((v1-v2).inner_product (x1-x2))/(x1-x2).magnitude**2)*(x1-x2)
-@V2f = v2 - 2 * m1 / (m1+m2) * (((v2-v1).inner_product (x2-x1))/(x2-x1).magnitude**2)*(x2-x1)
-return @V1f,@V2f
-# puts @V1f
-# puts @V2f
-end
-class Player
-  attr_accessor :x,:y,:delta_x, :delta_y, :left_pressed
-  def initialize
-    @x = -5
-    @y = -5
+    @V1f = v1 - 2 * m2 / (m1+m2) * (((v1-v2).inner_product (x1-x2))/(x1-x2).magnitude**2)*(x1-x2)
+    @V2f = v2 - 2 * m1 / (m1+m2) * (((v2-v1).inner_product (x2-x1))/(x2-x1).magnitude**2)*(x2-x1)
+    return @V1f,@V2f
 
   end
 
-  def release_ball
-    $boxes.any? do |box|
-      if box.grabbed
-        puts "box released"
-        box.in_reach = false
+  class Player
+    attr_accessor :x,:y,:delta_x, :delta_y, :left_pressed
+    def initialize
+      @x = -5
+      @y = -5
+
+    end
+
+    def release_ball
+      $boxes.any? do |box|
+        if box.grabbed
+          puts "box released"
+          box.in_reach = false
+        end
       end
     end
-  end
 
-end
+  end
