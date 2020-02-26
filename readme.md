@@ -14,10 +14,12 @@ In main.rb, you also specify input number of balls, positions and speed or let r
 + [wikipedia - Elastic collision](https://en.wikipedia.org/wiki/Elastic_collision)
 + Initial script based on a nice [tutorial from Mario Visic](https://www.youtube.com/watch?v=e3B8m4vBzB0&feature=emb_logo), [Github](https://github.com/mariovisic/ruby2d-games/tree/master/04%20-%20Collision-Detection)
 
-## screenshot
+## Screenshot
 ![screenshot](/Screenshot.png?raw=true "screenshot")
 
-## bugs and improvements
-+ Sometimes, the collision detection and calculator are not accurate enough, such that to 2 (or more) balls can get locked into a romantic dance. Another collision can sometimes break the dance!
+## Bugs and improvements
++ Sometimes, the collision detection and calculator are not accurate enough, such that to 2 (or more) balls can get locked into a romantic dance. Another collision with some other balls can sometimes break the dance!
 + The ball grab logic could be improved. sometimes balls get hidden behind the grabbed ball and never come out (also due to imprecise collision detection)
-
++ with user mouse control, if you move too fast, you "lose" the ball. 
++ add walls and randome shapes
++ make a game out of it
