@@ -8,7 +8,7 @@ Clone the repository, then in the folder, run:
 ```sh
 $ ruby main.rb
 ```
-In main.rb, you also specify input number of balls, positions and speed or let randome numbers be generated. 
+In main.rb, you also specify input number of balls, positions and speed or let random numbers be generated. 
 
 ## Collision model
 + [wikipedia - Elastic collision](https://en.wikipedia.org/wiki/Elastic_collision)
@@ -20,6 +20,6 @@ In main.rb, you also specify input number of balls, positions and speed or let r
 ## Bugs and improvements
 + Sometimes, the collision detection and calculator are not accurate enough, such that to 2 (or more) balls can get locked into a romantic dance. Another collision with some other balls can sometimes break the dance!
 + The ball grab logic could be improved. sometimes balls get hidden behind the grabbed ball and never come out (also due to imprecise collision detection)
-+ with user mouse control, if you move too fast, you "lose" the ball. 
-+ add walls and randome shapes
-+ make a game out of it
++ With user mouse control, if you move too fast, you "lose" the ball. 
++ Add walls and random shapes
++ Make a game out of it
